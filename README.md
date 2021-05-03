@@ -37,5 +37,7 @@ Solutions to questions shall be answered in markdown files.
 | Step | Topics |
 | --- | --- |
 | [1.A][step_1] | Computer processes, Threads and IPC |
+| [1.B][step_2] | POSIX, POSIX shell, environment variables |
 
 [step_1]: 1-A_Step.md
+[step_2]: 1-B_Step.md
