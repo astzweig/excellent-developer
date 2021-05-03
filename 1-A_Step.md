@@ -1,5 +1,5 @@
 # 1.A Computer processes, threads and IPC
-## Taks 1
+## Task 1
 *Time estimate:* 8h
 Answer the following questions:
 

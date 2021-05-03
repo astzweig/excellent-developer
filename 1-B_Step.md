@@ -1,5 +1,5 @@
 # 1.B POSIX, POSIX shell, Environment variables
-## Taks 1
+## Task 1
 *Time estimate:* 6h
 Answer the following questions:
 
