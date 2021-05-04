@@ -1,0 +1,240 @@
+Ein Prozess (ein Task, eine Programminstanz) ist ein in ausführung befindliches Programm (zur Laufzeit). 
+
+Ein Prozess wird vom Betriebssystem, genauer gesagt dem Scheduler, dynamisch kontrolliert, 
+durch aktionen, die den Prozess in einen anderen Zustand versetzen. 
+Ein Prozess ist auch die Zustandsiformation eines laufenden Programms.
+
+Ein Prozess bezeichnet den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+Dieser beinhaltet:
+	-Den wert des Befehlszählers(1)
+		(1) Register im Hauptprozessor. Enthält Speicheradressen des Aktuellen und nächsten Befehls.
+		auch Befehls-/Programmzeiger genannt.
+	-Inhalt des Prozessregisters(2)
+		(2) Speicherbereich für Daten, auf die besonders schnell zugegriffen werden muss.
+		Dies ist für diese Aufgabe die schnellste Möglichkeit, da der L-Cache unabhängig
+		Daten-/Adressbus ist.
+	-In ausführung befindlicher Code
+	-Stack(3)
+		(3)Enthält Temporäre Daten wie Rücksprungadressen und lokale Variablen.
+	-Datensegment(4)
+		(4)Enthält Globale Variablen und Datenstrukturen, da diese schon beim Start
+		des Programms bekannt sein müssen.
+	-Heap(5)
+		(5)Zusätzlicher Pufferspeicher. Dieser ist für Entwickler ein erheblicher Mehraufwand,
+		daher eine häufige Fehlerquelle.(Buffer-Overflow)
+
+Ein Prozess bekommt seinen eigenen Adressraum und weitere Betriebssystemmittel/Ressourcen zugeordnet.
+	-Prozesse sind gegeneinander abgeschrimt.
+	-Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+(Im Gegensatz ein Programm:
+	Statische verfahrensvorschrift für eine Verarbeitung auf einm Rechnersystem.)
+
+Betriebssystem:
+	Eine zusammenstellung von Programmen, die die Systemressourcen, eines Computers verwaltet:
+		-Arbeitsspeicher
+		-Festplatten
+		-Ein- und Ausgabegeräte
+	Das Betirebsystem bildet die Schnittstelle zwischen Hardware-Komponenten und der Anwen-
+	dunssoftware des Benutzers.
+	
+	Betriebssysteme bestehen in der Regel aus einem Kernel.
+Kernel:
+	-Verwaltet die Benutzung der Hardware des Computers.
+	-Verwaltet spezielle Programme, die beim Start unterschiedliche Aufgaben übernehmen.			
+	-Lädt Gerätetreiber.
+	Im Kernel ist die Prozess- und Datenorganisation festgelegt, auf der alle weiteren
+	Softwarebestandteile des Betriebsystems aufbauen.
+	Gängige Anforderungen:
+		-Parralelverarbeitungen verschiedener Aufgaben (Multitasking)
+		-Einhaltung zeitkritischer Grenzen
+		-Offenheit für unterschieldichste Anwendungen und Erweiterungen.
+
+	Bestandteile:
+		-Schnittstelle zur Hardware(Geräte, Speicher, Prozessoren)
+		-Speicherverwaltung (Arbeitsspeicher)
+		-Prozessverwaltung (Scheduler)
+		-Geräteverwaltung
+		-Dateisysteme	
+
+Laufzeitumgebung(Runtime-Environment):
+	 Vom Computer festgelegten Vorraussetzungen.
+		-Typprüfungen
+		-Debugging
+		-Codegenerierung /-optimierung
+		-Laufzeitbibliotheken
+		-Standartbibliotheken
+		-Programmierschnittstellen
+		-Laufzeitvariablen
+	Basis-Aufgaben:
+		-Lesen und Schreiben von Dateien
+		-Daten über Netzwerk transportieren
+		-Ein und Ausgabegeräte steueren
+		-Daten verwalten
+		-Sortieren und Suchen
+
+Der Prozess_Scheduler:
+	-Steuerprogramm des Bertiebssystems
+		-Regelt die zeitliche Ausführung mehrerer Prozesse in Bertriebsystemen.
+		-Funktioniert wie eine Warteschlange. 
+		-(Soll in der Lage sein Echtzeit-Systeme zu händeln.)
+		-Kann mehrere Prozesse vor Beendung hin und her switchen, um das gleichzeitige Abl-
+		laufen mehrerer Prozesse zu simulieren.(Dabei kann nur ein Prozess gleichzeitg
+		verarbeitet werden.
+
+	-Grobe Unterteilung in:
+		-unterbrechende
+		-nicht unterbrechende Schedulingstrategien.
+
+	-Unterbrechende Scheduler:
+		-teilen dem CPU von vorneherein nur für eine bestimmte Zeitspanne dem Prozess zu und
+		entziehen Ihn dem Prozess wieder.
+
+	-Nicht unterbrechende Scheduler:
+		Lassen den CPU solange für den Prozess laufen, bis der Prozess den CPU wieder freigibt.
+
+
+Der Thread (Ein Strang/Faden):
+	-Eine nebenläufige Ausführungseinheit innerhalb eines Prozesses
+	
+	Kernel_Threads:
+		 Threads, des gleichen Prozesses können verschiedenen Prozessoren zugeordnet sein.
+		
+	
+	Thread-Kontext:
+		Jeder Thread besitzt einen eigenen Kontext:
+			-unabhägiger Registersatz
+				(Registersatz: Die Menge aller Reigster eines Mikroprozessors.)
+			-einen eigenen Stapel (Stack)
+				(Stack: Ein Stapel mit Last in first Out- Prinzip)
+			
+		Registersatz:
+			Die Menge der Register im Mikroprozessor, die durch Programme direkt
+			angesprochen werden können.
+			3 Typen:
+				-Datenregister zur Zwischenpeicherung von Operanden und 
+				 Rechenergebnissen
+				-Adressregister zur Adressirung von Operanden und Befehlen.
+				-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
+				 oder Stackpointer.
+
+	Typen:
+		-User-Threads:
+			Nicht im Kernel implementiert, sondern in einer separaten
+			Programmbibliothek.
+				-Taskswitching zwischen Userthreads ohne aufwenidge Systemaufrufe
+				 möglich.
+				-Wen ein Task blcokiert sind alle blockiert.
+
+		-Kernel-Threads:
+			Im kernel implementiert
+				-Taskswichting needs Hardware Support.
+				-Wen ein Task blockiert, kann ein anderer übernehmen.
+				
+Init-Prozess:
+	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1)
+	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
+	ist in etc/inittab festgelegt.
+	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
+	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+	Als aller erstes führt der Init-Prozess jedoch einen POST (Power-On-Self-Test) durch,
+	bei diesem wird:
+		-Funktion der CPU
+		-Funktion der RAM
+		-Funktion der Cache
+		-Funktion der I/O-Software
+	geprüft.
+
+Shell:
+	Software die das Interagieren mit dem OS möglich macht. 
+	Kernel = Kern des OS, Shell = Hülle, für den benutzer Sichtbarer teil des OS.
+
+
+Standart-streams:
+	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+		-stdin: Input vom z.B. Keybord
+		-stdout: Ausgabe von z.B Text auf dem Display
+		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+	Standarteingaben:
+		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+			-Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+			-Bsp. $less < eingaben.txt:
+				-Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+	Standartausgaben:
+		Über Standartausgaben kann ein Programm Daten ausgeben.
+			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+			Bsp. $find . -name "*html" > ausgaben.txt
+			Find wird in die datei ausgaben.txt umgeleitet.
+	
+	Standarfehlerausgabe:
+		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+	Pipe:
+		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+		Funktioniert nach dem first in first out Prinzip.
+		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
+		In der shell wird dies durch den "|" realisiert. So kann man mehrere befehle hintereinander Ausführen.
+
+/dev/null:
+	Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme verworfen werden. 
+	Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegebn.
+	Verwendung:
+		-Verwerfung von nicht interessanten Datenströmen, z.B. asugaben vom Prozesor
+		
+Administratorrechte Prozess:
+	sudo chmod n+s (programmpfad) bewirkt dass das programm mit den rechten der Benutzergruppe des SuperUsers
+	ausgeführt wird. Generell steht sudo für SuperUser do, und führt den nachfolgenden befehl 
+	mit Administratorrechten aus(falls vorhanden).
+	
+.EXE Datei und ihre Struktur:
+	Bei einer .exe datei handelt es sich unter Windows-Basierten Systemen um eine Ausführbare datei.
+	Sie besteht aus:
+		-Ausführbarem Code, welcher in der .exe als .text vorliegt
+		-Datensektionen, liegt als .data vor
+		-Ressourcensektionen (.rsrc)
+		-Importdatensektion (.idata)
+		-Debuginfotmationssektion(.debug)
+
+Interprozesskommunikation:
+	Erfolgt über verschiedene Verfahren:o clarify
+		-Shared Memory:
+			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+			 gemeinsame Bereiche des Arbeitsspeichers.
+		-Message Queue:
+			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+			 wo ein anderer Prozess sie abholen kann.
+
+	Wichtig:
+		Vermeidung von Race Conditions:
+			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+			
+Posix:
+	Ist ein IEEE STandard zur einheitlichen Bereitstellung von Schnittstellen in Unixbasierten Systemen.
+	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
+	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
+	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
+	
+	
+POSIX-Shell:
+	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
+	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
+	auf allen Unix Systemen zum Laufen zu bringen.
+	
+Shells:
+	Bourne (UNIX), POSIX, BASH, csh, zsh, cmd.exe, PowerShell etc
+	
+Globbing:
+	Globbing beschreibt das Anwenden von Wildcard-Patterns(platzhaltern), um so auf dateien zuzugreifen ohne ihren genauen dateinahmen kennen zu müssen.
+	Dabei haben die verscheidenen PLatzhalter folgende bedeutung:
+		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen.
+		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen.
+		die Raute (#) ist ein platzhalter für einen numerischen Wert.
+		
+Umgebungsvariablen:
+	Sind konfigurierbare Variablen die Pfade zu Programmen oder Daten. Dadurch ist es möglich ein programm in der shell direkt
+	durch eingabe der Befehle auszuführen ohne erst den pfad zum programm anzugeben oder in dieses verzeichnis wechseln zu müssen.
+	Beispiele hierfür sind zb. git und svn.
+	
+	
