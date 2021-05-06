@@ -149,3 +149,39 @@ Interprozesskommunikation:
 		-Pipes:
 			Ergebnisse von einem Prozess werden in eine Message Queue abgelegt, von wo sie
 			der nächste Prozess abholen kann.
+
+
+
+ Standart-streams:
+ 	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+ 		-stdin: Input vom z.B. Keybord
+ 		-stdout: Ausgabe von z.B Text auf dem Display
+ 		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+ 	Standarteingaben:
+ 		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+ 			-Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+ 			-Bsp. $less < eingaben.txt:
+ 				-Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+ 	Standartausgaben:
+ 		Über Standartausgaben kann ein Programm Daten ausgeben.
+ 			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+ 			Bsp. $find . -name "*html" > ausgaben.txt
+ 			Find wird in die datei ausgaben.txt umgeleitet.
+
+ 	Standarfehlerausgabe:
+ 		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+ 			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+ 	Pipe:
+ 		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+ 		Funktioniert nach dem first in first out Prinzip.
+ 		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
+ 		In der shell wird dies durch den "|" realisiert. So kann man mehrere befehle hintereinander Ausführen.
+		Pipes können auch auf mehrere Prozesse angewendet werden in Reihe. 1 nach 2 nach 3.
+
+
+
+
+
