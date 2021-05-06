@@ -99,3 +99,10 @@ Der Thread (Ein Strang/Faden):
  					-Wen ein Task blockiert, kann ein anderer übernehmen.
 
 
+Init-Prozess:
+ 	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1) (windows basierte system haben dieses Prozess nicht weil sie den Service Control Manager haben, der alles regelt.)
+	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
+ 	ist in etc/inittab festgelegt.
+ 	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
+ 	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+
