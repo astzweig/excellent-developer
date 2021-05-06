@@ -76,5 +76,26 @@ Der Thread (Ein Strang/Faden):
  				-Adressregister zur Adressierung von Operanden und Befehlen.
 
 				Operanden:
-					z.B Arithmetische Ausdrücke (+, -, *, :)
-					z.B. Aussagelogische Asudrücke (und, oder, wenn...dann)
+					z.B Arithmetische Ausdrücke (+, -, *, :)	
+					z.B. Aussagelogische Ausdrücke (und, oder, wenn...dann)
+
+
+		-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
+ 				 oder Stackpointer.
+
+ 		Typen:
+ 			-User-Threads:
+ 				Nicht im Kernel implementiert, sondern in einer separaten
+ 				Programmbibliothek.
+ 					-Taskswitching zwischen Userthreads ohne aufwendige Systemaufrufe
+ 				 	möglich.
+ 					-Wen ein Task blockiert sind alle blockiert.
+					(Falls ein Task Probleme macht, ist es wichtig das dieser Blockiert, sodass der Prozess gestoppt wird und
+					gegebenenfalls einen Fehler auswirft.
+
+			-Kernel-Threads:
+ 				Im kernel implementiert
+ 					-Taskswichting needs Hardware Support.
+ 					-Wen ein Task blockiert, kann ein anderer übernehmen.
+
+
