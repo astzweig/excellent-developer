@@ -105,11 +105,31 @@ Init-Prozess:
  	ist in etc/inittab festgelegt.
  	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
  	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
-	Als aller erstes führt der Init-Prozess jedoch einen POST (Power-On-Self-Test) durch,
+	Als aller erstes führt das BIOS jedoch einen POST (Power-On-Self-Test) durch,
  	bei diesem wird:
  		-Funktion der CPU
  		-Funktion der RAM
  		-Funktion der Cache
  		-Funktion der I/O-Software
- 	geprüft.
+ 	geprüft, bevor der Init-Prozess gestartet wird.
 
+
+
+
+Shell:
+ 	Software die das Interagieren mit dem OS möglich macht. 
+ 	Kernel = Kern des OS, Shell = Hülle, für den benutzer Sichtbarer teil des OS.
+
+	Virtuell Shell:
+		Virtual Shells werden benutzt um auf einem virtuellen Computer Probleme ausfindig zu machen und zu reparieren.
+
+	Login-Shell:
+		Wird aufgerufen, wen man sich einloggt z.B. 
+		Non-login Shells werden von der Login-Shell als Subshell aufgerufen.
+
+	Die Shell ist der sichtbare teil des Systems, das ist die Schnittstelle zwischen dem Computer und dem Nutzer.
+
+	Über die Shell werden weiter Anwendungen wie die Startseite des Computers oder andere anwednugnen gestartet.
+
+	Ausführung von Prozessen:
+		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehel in dem Skript aus.
