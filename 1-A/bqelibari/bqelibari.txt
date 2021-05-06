@@ -74,4 +74,4 @@ Init-Prozess:
 		-Funktion der RAM
 		-Funktion der Cache
 		-Funktion der I/O-Software
-	geprüft.
+	geprüft. Sollte der POST fehlschlafǵen, ertönt ein signalton und der start des Computers wird abgebrochen.
