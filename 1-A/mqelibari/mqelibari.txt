@@ -105,4 +105,11 @@ Init-Prozess:
  	ist in etc/inittab festgelegt.
  	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
  	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+	Als aller erstes führt der Init-Prozess jedoch einen POST (Power-On-Self-Test) durch,
+ 	bei diesem wird:
+ 		-Funktion der CPU
+ 		-Funktion der RAM
+ 		-Funktion der Cache
+ 		-Funktion der I/O-Software
+ 	geprüft.
 
