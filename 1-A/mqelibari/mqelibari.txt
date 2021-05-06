@@ -1,0 +1,51 @@
+1. Ein Prozess (ein Task, eine Programminstanz) ist ein in ausführung befindliches Programm (zur Laufzeit).
+
+Ein Prozess wird vom Betriebssystem, genauer gesagt dem Scheduler, dynamisch kontrolliert,
+durch aktionen, die den Prozess in einen anderen Zustand versetzen.
+Ein Prozess ist auch die Zustandsiformation eines laufenden Programms.
+
+Ein Prozess bezeichnet den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+Dieser beinhaltet:
+        -Den wert des Befehlszählers(1)
+                (1) Register im Hauptprozessor. Enthält Speicheradressen des Aktuellen und nächsten Befehls.
+                auch Befehls-/Programmzeiger genannt.
+        -Inhalt des Prozessregisters(2)
+                (2) Speicherbereich für Daten, auf die besonders schnell zugegriffen werden muss.
+                Dies ist für diese Aufgabe die schnellste Möglichkeit, da der L-Cache unabhängig
+                Daten-/Adressbus ist.
+        -In ausführung befindlicher Code
+        -Stack(3)
+                (3)Enthält Temporäre Daten wie Rücksprungadressen und lokale Variablen.
+        -Datensegment(4)
+                (4)Enthält Globale Variablen und Datenstrukturen, da diese schon beim Start
+                des Programms bekannt sein müssen.
+        -Heap(5)
+                (5)Zusätzlicher Pufferspeicher. Dieser ist für Entwickler ein erheblicher Mehraufwand,
+                daher eine häufige Fehlerquelle.(Buffer-Overflow)
+
+Ein Prozess bekommt seinen eigenen Adressraum und weitere Betriebssystemmittel/Ressourcen zugeordnet.
+        -Prozesse sind gegeneinander abgeschrimt.
+        -Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+(Im Gegensatz ein Programm:
+        Statische verfahrensvorschrift für eine Verarbeitung auf einm Rechnersystem.)
+
+Unterschied zwischen Heap und Stack.
+
+        Heap:
+                Im Heap speicher werden globale Variablen gespeicher.
+                Die Speicherrung ist auf verschiedene Speicherblöcke aufgeteilt und hat keine feste Größe.
+                Um auf den Heap zuzugreifen benötigt es aufgrund der aufgeteilten Speicherblöcke mehr Zeit um darauf zuzugreifen.
+
+        Stack:
+                Auf dem Stack speicher werden lokale Variablen gespeichert.
+                Der Stackspeicher hat eine feste größe und einen festen Platz.
+                Aufgrund dieses fest liegenden Speicherbereichs, ist der zugriff auf die Daten die im Stack speicher liegen,
+                schneller zuzugreifen. Nachdem ablauf eines Prozeses wird der Speicher leergeräumt.
+                Aufgrund des begrenzten Speicherplatzes Ein Prozess (ein Task, eine Programminstanz) ist ein in ausführung befindliches Programm (zur Laufzeit).
+Prozessorregister:
+        Die L-Cache:
+                Ein Puffer zwischen Arbeitsspeicher und Prozessor.
+                Auf der L-Cache werden daten gespeichert, die schnell bzw. oft gebraucht werden.
+                Ist in 3 Stufen aufgeteilt.
+                L1, L2, L3.
+                Je nöher am Prozssor, desto kleiner der Speicher und desto wichtigere Daten befinden sich in der Cache.
