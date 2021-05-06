@@ -129,7 +129,23 @@ Shell:
 
 	Die Shell ist der sichtbare teil des Systems, das ist die Schnittstelle zwischen dem Computer und dem Nutzer.
 
-	Über die Shell werden weiter Anwendungen wie die Startseite des Computers oder andere anwednugnen gestartet.
+	Über die Shell werden weiter Anwendungen wie die Startseite des Computers oder andere Anwednungen gestartet.
 
 	Ausführung von Prozessen:
-		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehel in dem Skript aus.
+		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehl in dem Skript aus.
+
+
+
+
+Interprozesskommunikation:
+
+ 	Erfolgt über verschiedene Verfahren:o clarify
+ 		-Shared Memory:
+ 			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+ 			 gemeinsame Bereiche des Arbeitsspeichers.
+ 		-Message Queue:
+ 			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+ 			 wo ein anderer Prozess sie abholen kann.
+		-Pipes:
+			Ergebnisse von einem Prozess werden in eine Message Queue abgelegt, von wo sie
+			der nächste Prozess abholen kann.
