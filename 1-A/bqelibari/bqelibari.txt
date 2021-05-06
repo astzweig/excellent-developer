@@ -60,3 +60,18 @@ Der Prozess_Scheduler:
 
 	-Nicht unterbrechende Scheduler:
 		Lassen den CPU solange für den Prozess laufen, bis der Prozess den CPU wieder freigibt.
+		
+		
+Init-Prozess:
+	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1)
+	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
+	ist in etc/inittab festgelegt.
+	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
+	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+	Als aller erstes wird vor dem Init-Prozess jedoch einen POST (Power-On-Self-Test) vom BIOS durchgeführt,
+	bei diesem wird:
+		-Funktion der CPU
+		-Funktion der RAM
+		-Funktion der Cache
+		-Funktion der I/O-Software
+	geprüft.
