@@ -151,23 +151,3 @@ Interprozesskommunikation:
 			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
 	The Pipe from above is not an IPC, because the different processes dont communicate in any way.
 	You as the user decide which process will get which output as its input.
-	
-Posix:
-	Ist ein IEEE STandard zur einheitlichen Bereitstellung von Schnittstellen in Unixbasierten Systemen.
-	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
-	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
-	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
-	
-	
-POSIX-Shell:
-	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
-	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
-	auf allen Unix Systemen zum Laufen zu bringen.
-	
-Shells:
-	Bourne (UNIX), POSIX, BASH, csh, zsh, cmd.exe, PowerShell et
-	
-	Here, POSIX, as stated above, is a defined standard. The Bourne shell is POSIX-conformant, meaning scripts written on it will most likely run on other systems.
-	whereras the BASH(Bourne Again Shell) is based on the traditional Bash, but offers a lot of extra features which are not part of POSIX.
-	This is why scripts written on a BASH shell, will most likey not run on other systems.
-	/bin/sh is an executable representing the BASH shell, #!/bin/sh represents the POSIX Compatible Bourne Shell
