@@ -29,3 +29,13 @@ Globbing:
 	Examples: 
 	-if you want to display all files of a certain type, you could use *.fileextension,
 	or you could use c????.py to display all files which filenames are 5 characters long and begin with a lowecase c.
+	
+
+Umgebungsvariablen:
+	Sind konfigurierbare Variablen die Pfade zu Programmen oder Daten. Dadurch ist es möglich ein programm in der shell direkt
+	durch eingabe der Befehle auszuführen ohne erst den pfad zum programm anzugeben oder in dieses verzeichnis wechseln zu müssen.
+	Beispiele hierfür sind zb. git und svn.
+	Environment variables are variables that are available system-wide and are inherited by all child processes and the shell.
+	You can set the Variables in the shell itself, so bind commands to shortcuts. that way you can use 'lla' instead of ls -l -a.
+
+
