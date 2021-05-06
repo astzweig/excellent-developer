@@ -63,7 +63,7 @@ Der Prozess_Scheduler:
 		
 		
 Init-Prozess:
-	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1)
+	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1), unter windows gibt es keinen vergleichbaren prozess.
 	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
 	ist in etc/inittab festgelegt.
 	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
@@ -75,3 +75,63 @@ Init-Prozess:
 		-Funktion der Cache
 		-Funktion der I/O-Software
 	geprüft. Sollte der POST fehlschlafǵen, ertönt ein signalton und der start des Computers wird abgebrochen.
+	
+
+Shell:
+	Software die das Interagieren mit dem OS möglich macht. 
+	Kernel = Kern des OS, Shell = Hülle, für den benutzer Sichtbarer teil des OS.
+	The visible part of the OS discribes the Console, the most fundamental option for HUmans to interact with an OS.
+	The shell is so powerful that there are basically no limitations, if you have sufficient permissions, the shell allows you to delete
+	the whole file system.
+	A login shell is the first process that executes under your user ID when you log in for an interactive session. 
+	Login shells typically read a file that do things like setting environment variables, whereas the virtual shell is just another name
+	for the regular shell. This was done in order to confuse ppl who want to start working with linux.
+	
+Administratorrechte Prozess:
+	sudo chmod n+s (programmpfad) bewirkt dass das programm mit den rechten der Benutzergruppe des SuperUsers
+	ausgeführt wird. Unter Linux kann jeder Nutzer mit seinem eigenen Passwort zum Administrator werden den man in die Datei “/etc/sudoers” einträgt,
+	dieser nutzer kann dann mit seinem Passwort Adminstrative befehle ausführen. Diese nutzer sind dann berechtigt den befehl mit den rechten des Superusers
+	auszuführen. Der superuser/root-user ist das konto welches absolut keine beschränkungen hat und vollen zugriff auf jede datei im system genießt. 
+	Generell steht sudo für substitite-User do, und führt den nachfolgenden befehl mit Administratorrechten aus(falls vorhanden). 
+	Ein standardbenutzer kann keine administrativen befehlen ausführen ohne in etc/sudoers eingetragen worden zu sein.
+	
+
+.EXE Datei und ihre Struktur:
+	Bei einer .exe datei handelt es sich unter Windows-Basierten Systemen um eine Ausführbare datei.
+	Sie besteht aus:
+		-Ausführbarem Code, welcher in der .exe als .text vorliegt
+		-Datensektionen, liegt als .data vor
+		-Ressourcensektionen (.rsrc)
+		-Importdatensektion (.idata)
+		-Debuginfotmationssektion(.debug)
+	The .text section is not to be confused with a normal textfile which is readably by a texteditor.
+	It got its name because it contains the actual executable instructions of the .exe 
+	
+
+Standart-streams:
+	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+		-stdin: Input vom z.B. Keybord
+		-stdout: Ausgabe von z.B Text auf dem Display
+		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+	Standarteingaben:
+		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+			-Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+			-Bsp. $less < eingaben.txt:
+				-Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+	Standartausgaben:
+		Über Standartausgaben kann ein Programm Daten ausgeben.
+			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+			Bsp. $find . -name "*html" > ausgaben.txt
+			Find wird in die datei ausgaben.txt umgeleitet.
+	
+	Standarfehlerausgabe:
+		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+	Pipe:
+		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+		Funktioniert nach dem first in first out Prinzip.
+		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
+		In der shell wird dies durch den "|" realisiert. So kann man zwei oder mehrere befehle hintereinander Ausführen.
