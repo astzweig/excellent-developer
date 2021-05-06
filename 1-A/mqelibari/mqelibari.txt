@@ -185,7 +185,8 @@ Interprozesskommunikation:
 /dev/null:
  	Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme verworfen werden. 
  	Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegeben.
-
+	Verwendung:
+ 		-Verwerfung von nicht interessanten Datenströmen, z.B. asugaben vom Prozesor
 
 
 
