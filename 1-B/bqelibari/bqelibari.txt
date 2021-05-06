@@ -17,3 +17,15 @@ Shells:
 	whereras the BASH(Bourne Again Shell) is based on the traditional Bash, but offers a lot of extra features which are not part of POSIX.
 	This is why scripts written on a BASH shell, will most likey not run on other systems.
 	/bin/sh is an executable representing the BASH shell, #!/bin/sh represents the POSIX Compatible Bourne Shell
+	
+
+Globbing:
+	Globbing beschreibt das Anwenden von Wildcard-Patterns(platzhaltern), um so auf dateien zuzugreifen ohne ihren genauen dateinahmen kennen zu müssen.
+	Dabei haben die verscheidenen PLatzhalter folgende bedeutung:
+		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen.
+		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen.
+		die Raute (#) ist ein platzhalter für einen numerischen Wert.
+	
+	Examples: 
+	-if you want to display all files of a certain type, you could use *.fileextension,
+	or you could use c????.py to display all files which filenames are 5 characters long and begin with a lowecase c.
