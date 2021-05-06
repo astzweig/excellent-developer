@@ -1,0 +1,62 @@
+Ein Prozess ist eine Programminstanz/ein in ausführung befindliches Programm. 
+
+Prozesse werden vom Betriebssystem, genauer gesagt dem Scheduler, dynamisch kontrolliert, 
+durch aktionen, die den Prozess in einen anderen Zustand versetzen. 
+Ein Prozess ist gleichzeitig die Zustandsinformation eines laufenden Programms.
+
+Prozesse bezeichnen dabei den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+Dieser beinhaltet:
+	-Den wert des Befehlszählers(1)
+		(1) Register im Hauptprozessor. Enthält Speicheradressen des Aktuellen und nächsten Befehls.
+		auch Befehls-/Programmzeiger genannt.
+	-Inhalt des Prozessregisters(2)
+		(2) Speicherbereich für Daten, auf die besonders schnell zugegriffen werden muss.
+		Dies ist für diese Aufgabe die schnellste Möglichkeit, da der L-Cache unabhängig
+		Daten-/Adressbus ist.
+	-In ausführung befindlicher Code
+	-Stack(3)
+		(3)Enthält Temporäre Daten wie Rücksprungadressen und lokale Variablen.
+	-Datensegment(4)
+		(4)Enthält Globale Variablen und Datenstrukturen, da diese schon beim Start
+		des Programms bekannt sein müssen.
+	-Heap(5)
+		(5)Zusätzlicher Pufferspeicher. Dieser ist für Entwickler ein erheblicher Mehraufwand,
+		daher eine häufige Fehlerquelle.(Buffer-Overflow)
+		
+		
+The difference between Heap and Stack are the following:
+	-stack memory is very limited(bad, stack overflow by creating too many objects), whereas heap-memory can provide the maximum memory the OS itself can provide(also bad, self-explaining).
+	This is also where the main issues of both heap and stack come from. One is chronically short of memory, the other suffers from fragmented memory.
+	-Heap supports Garbage collection, costs more and is slower than the Stack. This is because the Heap is actually a Tree-based datastructure.
+	-While in a stack memory is allocated in a coninuous block, its allocated in a pretty much random order in the heap.
+
+	
+
+Ein Prozess bekommt seinen eigenen Adressraum und weitere Betriebssystemmittel/Ressourcen zugeordnet.
+	-Prozesse sind gegeneinander abgeschrimt.
+	-Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+Im Gegensatz ein Programm:
+	Statische verfahrensvorschrift für eine Verarbeitung auf einm Rechnersystem.
+	
+A Process is represented by a da datastructure called Process Control Block (PCB). The PCB contains many informations regarding its Process.
+e.g. its hardware-context, its current processor-state
+	
+Der Prozess_Scheduler:
+	-Steuerprogramm des Bertiebssystems
+		-Regelt die zeitliche Ausführung mehrerer Prozesse in Bertriebsystemen.
+		-Funktioniert wie eine Warteschlange. 
+		-(Soll in der Lage sein Echtzeit-Systeme zu händeln.)
+		-Kann mehrere Prozesse vor Beendung hin und her switchen, um das gleichzeitige Abl-
+		laufen mehrerer Prozesse zu simulieren.(Dabei kann nur ein Prozess gleichzeitg
+		verarbeitet werden.
+
+	-Grobe Unterteilung in:
+		-unterbrechende
+		-nicht unterbrechende Schedulingstrategien.
+
+	-Unterbrechende Scheduler:
+		-teilen dem CPU von vorneherein nur für eine bestimmte Zeitspanne dem Prozess zu und
+		entziehen Ihn dem Prozess wieder.
+
+	-Nicht unterbrechende Scheduler:
+		Lassen den CPU solange für den Prozess laufen, bis der Prozess den CPU wieder freigibt.
