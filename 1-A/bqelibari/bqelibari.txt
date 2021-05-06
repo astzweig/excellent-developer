@@ -135,3 +135,19 @@ Standart-streams:
 		Funktioniert nach dem first in first out Prinzip.
 		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
 		In der shell wird dies durch den "|" realisiert. So kann man zwei oder mehrere befehle hintereinander Ausführen.
+		
+
+Interprozesskommunikation:
+	Erfolgt über verschiedene Verfahren:o clarify
+		-Shared Memory:
+			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+			 gemeinsame Bereiche des Arbeitsspeichers.
+		-Message Queue:
+			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+			 wo ein anderer Prozess sie abholen kann.
+
+	Wichtig:
+		Vermeidung von Race Conditions:
+			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+	The Pipe from above is not an IPC, because the different processes dont communicate in any way.
+	You as the user decide which process will get which output as its input.
