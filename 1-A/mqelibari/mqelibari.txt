@@ -182,6 +182,11 @@ Interprozesskommunikation:
 		Pipes können auch auf mehrere Prozesse angewendet werden in Reihe. 1 nach 2 nach 3.
 
 
+/dev/null:
+ 	Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme verworfen werden. 
+ 	Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegeben.
+
+
 
 
 
