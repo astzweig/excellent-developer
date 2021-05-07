@@ -186,8 +186,19 @@ Interprozesskommunikation:
  	Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme verworfen werden. 
  	Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegeben.
 	Verwendung:
- 		-Verwerfung von nicht interessanten Datenströmen, z.B. asugaben vom Prozesor
+ 		-Verwerfung von nicht interessanten Datenströmen, z.B. ausgaben vom Prozessor.
 
+
+Administratorrechte Prozess:
+	Jeder Prozess hat eine User-ID, das ist die ID vom User der in dem Moment angemeldet ist und den Befehl ausführt.
+	Admins haben die ID 0. Je nach rechte auf dem PC hat man eine andere ID.
+	Es geht nur als Admin "Superuser" die ID zu ändern.
+	Über chmod lassen sich die Rechte auf eine Datei ändern, z.B aus nur lesen, lesen und schrieben...
+
+	The Root User:	
+		Das ist der Benutzer, der bei der Installation des Betriebssystems eingerichtet wurde.
+		Auch Super-User gennant. Er hat alle rechte auf dem System und kann alles verwalten.
+	
 
 
 
