@@ -156,8 +156,7 @@ Interprozesskommunikation:
  			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
  			 wo ein anderer Prozess sie abholen kann.
 		-Pipes:
-			Ergebnisse von einem Prozess werden in eine Message Queue abgelegt, von wo sie
-			der nächste Prozess abholen kann.
+			Ergebnisse von einem Prozess werden in einem Fork process weiterverarbeitet (ein Child-prozess)
 
 		Wichtig:
  		Vermeidung von Race Conditions:
