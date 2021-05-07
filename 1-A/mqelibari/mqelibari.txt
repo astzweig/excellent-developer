@@ -139,6 +139,8 @@ Shell:
 
 	Ausführung von Prozessen:
 		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehl in dem Skript aus.
+		Zum Beispiel ein Haskell Skript. Es startet eine Child-Shell wa anfängt das Skript zu interpretieren und Zeile
+		für Zeile einzugeben.
 	Terminal: 
 		Ein Programm auf dem die Shell ausgeführt wird. Das Commandline interface zählt zu diesen.
 
