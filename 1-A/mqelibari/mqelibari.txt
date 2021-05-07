@@ -139,7 +139,8 @@ Shell:
 
 	Ausführung von Prozessen:
 		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehl in dem Skript aus.
-
+	Terminal: 
+		Ein Programm auf dem die Shell ausgeführt wird. Das Commandline interface zählt zu diesen.
 
 
 
