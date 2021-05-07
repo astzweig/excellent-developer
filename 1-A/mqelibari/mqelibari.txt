@@ -79,7 +79,8 @@ Der Thread (Ein Strang/Faden):
 					z.B Arithmetische Ausdrücke (+, -, *, :)	
 					z.B. Aussagelogische Ausdrücke (und, oder, wenn...dann)
 				Da Operanden öfters benutzt werden, sind sie im Register gespeichert um ein schnelles Abrufen zu ermöglichen.
-				
+				String concatenation ist an sich kein Operator, aber das "+" was dabei benutzt wird, ist ein Operand,
+				ähnlich verhält sich append().
 
 
 		-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
