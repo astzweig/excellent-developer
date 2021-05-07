@@ -8,3 +8,15 @@ POSIX-Shell:
  	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
  	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
  	auf allen Unix Systemen zum Laufen zu bringen.
+
+Different Shells:
+ 	Bourne (UNIX), POSIX, BASH, csh, zsh, cmd.exe, PowerShell etc.
+	
+	Unterschied zwischen den Shells:
+		csh: Eine auf C basierende Shell.
+		Posix: Eine auf den POSIX-Standart basierende Shell.
+		Bourne shell: Die erste Shell auf dem die meisten Shells basieren.
+		BASH: Die weiterentwickelte form von der Bourne Shell.
+	Shebang:
+		#!/bin/sh:
+			Gibt der Shell an die folgenden Kommandos, mit /bin/sh auszuführen.
