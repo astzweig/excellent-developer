@@ -78,6 +78,8 @@ Der Thread (Ein Strang/Faden):
 				Operanden:
 					z.B Arithmetische Ausdrücke (+, -, *, :)	
 					z.B. Aussagelogische Ausdrücke (und, oder, wenn...dann)
+				Da Operanden öfters benutzt werden, sind sie im Register gespeichert um ein schnelles Abrufen zu ermöglichen.
+				
 
 
 		-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
