@@ -215,6 +215,8 @@ Administratorrechte Prozess:
 		Das ist der Benutzer, der bei der Installation des Betriebssystems eingerichtet wurde.
 		Auch Super-User gennant. Er hat alle rechte auf dem System und kann alles verwalten.
 
+	Ein Standartuser kann ein Programm über den Sudo Befehl als Admin ausführen oder indem er es schafft die ID zu ändern.
+
 
 .exe Datei:
 	Eine exe Datei ist eine executable File (eine ausführbare Datei).
