@@ -165,6 +165,10 @@ Interprozesskommunikation:
 
 
  Standart-streams:
+
+	Es gibt Standart-Datenströme und Programmen zu ermöglichen miteinander zu arbeiten.
+	Der Ausgabe-Strom eines Programms ist der Eingangsstrom eines anderen.
+	
  	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
  		-stdin: Input vom z.B. Keybord
  		-stdout: Ausgabe von z.B Text auf dem Display
