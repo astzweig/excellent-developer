@@ -20,3 +20,10 @@ Different Shells:
 	Shebang:
 		#!/bin/sh:
 			Gibt der Shell an die folgenden Kommandos, mit /bin/sh auszuführen.
+
+Globbing:
+ 	Globbing beschreibt das Anwenden von Wildcard-Patterns(platzhaltern), um so auf dateien zuzugreifen ohne ihren genauen dateinahmen kennen zu müssen.
+ 	Dabei haben die verscheidenen PLatzhalter folgende bedeutung:
+ 		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen. ?aus.txt alle Dateien die Haus Maus Raus etc. Heißen anwählen.
+ 		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen. Beispiel. rm *.txt (Alle .txt Datein im Verzeichnis löschen.
+ 		die Raute (#) ist ein platzhalter für einen numerischen Wert. rm #.png alle .png Dateien die mit einer zahl benannt sind löschen.
