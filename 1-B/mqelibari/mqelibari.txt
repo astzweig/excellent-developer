@@ -3,3 +3,8 @@ Posix:
  	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
  	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
  	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
+
+POSIX-Shell:
+ 	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
+ 	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
+ 	auf allen Unix Systemen zum Laufen zu bringen.
