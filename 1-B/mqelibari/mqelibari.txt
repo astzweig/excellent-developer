@@ -27,3 +27,14 @@ Globbing:
  		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen. ?aus.txt alle Dateien die Haus Maus Raus etc. Heißen anwählen.
  		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen. Beispiel. rm *.txt (Alle .txt Datein im Verzeichnis löschen.
  		die Raute (#) ist ein platzhalter für einen numerischen Wert. rm #.png alle .png Dateien die mit einer zahl benannt sind löschen.
+
+
+Umgebungsvariablen:
+ 	Sind konfigurierbare Variablen die Pfade zu Programmen oder Daten. Dadurch ist es möglich ein programm in der shell direkt
+	durch eingabe der Befehle auszuführen ohne erst den pfad zum programm anzugeben oder in dieses verzeichnis wechseln zu müssen.
+ 	Beispiele hierfür sind zb. git und svn.
+	Die Umgebungsvariablen sind für das System gedacht das auf dem Computer läuft.
+	Sie sind auch im PATH Folder gespeicher unter Windows, oder in der bin Datei unter unix Systemen.
+	Umgebungsvariablen sind wichtig um zu wissen wie der Computer Heist auf dem man arbeitet,
+	oder wo ein bestimmtes Programm zum ausführen von bestimmten Programmen ist.
+	
