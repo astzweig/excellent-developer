@@ -37,4 +37,9 @@ Umgebungsvariablen:
 	Sie sind auch im PATH Folder gespeicher unter Windows, oder in der bin Datei unter unix Systemen.
 	Umgebungsvariablen sind wichtig um zu wissen wie der Computer Heist auf dem man arbeitet,
 	oder wo ein bestimmtes Programm zum ausführen von bestimmten Programmen ist.
+
+Export-Befehl:
+	Der Export Befehl macht eine Variable die zuvor Über NAME= "TEST" indiziert wurde mit dem System bekannt und es kommt zu den Umgebungsvariablen.
+	NAME = "TEST"
+	export NAME
 	
