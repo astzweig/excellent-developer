@@ -135,7 +135,7 @@ Shell:
 
 	Die Shell ist der sichtbare teil des Systems, das ist die Schnittstelle zwischen dem Computer und dem Nutzer.
 
-	Über die Shell werden weiter Anwendungen wie die Startseite des Computers oder andere Anwednungen gestartet.
+	Über die Shell werden weiter Anwendungen wie die Benutzeroberfläche des Computers oder andere Anwednungen gestartet.
 
 	Ausführung von Prozessen:
 		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehl in dem Skript aus.
