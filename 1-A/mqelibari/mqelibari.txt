@@ -150,6 +150,10 @@ Interprozesskommunikation:
 			Ergebnisse von einem Prozess werden in eine Message Queue abgelegt, von wo sie
 			der nächste Prozess abholen kann.
 
+		Wichtig:
+ 		Vermeidung von Race Conditions:
+ 			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+
 
 
  Standart-streams:
@@ -198,6 +202,12 @@ Administratorrechte Prozess:
 	The Root User:	
 		Das ist der Benutzer, der bei der Installation des Betriebssystems eingerichtet wurde.
 		Auch Super-User gennant. Er hat alle rechte auf dem System und kann alles verwalten.
+
+
+.exe Datei:
+	Eine exe Datei ist eine executable File (eine ausführbare Datei).
+	Sie ist als binär Datei direkt in Maschinencode geschrieben,
+	oder als text Datei für die Shell zum auslesen.
 	
 
 
