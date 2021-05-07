@@ -221,7 +221,7 @@ Administratorrechte Prozess:
 .exe Datei:
 	Eine exe Datei ist eine executable File (eine ausführbare Datei).
 	Sie ist als binär Datei direkt in Maschinencode geschrieben,
-	oder als text Datei für die Shell zum auslesen.
+	oder in text Inhalt für die Shell zum auslesen.
 	
 
 
