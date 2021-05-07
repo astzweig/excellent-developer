@@ -95,6 +95,7 @@ Der Thread (Ein Strang/Faden):
  					-Wen ein Task blockiert sind alle blockiert.
 					(Falls ein Task Probleme macht, ist es wichtig das dieser Blockiert, sodass der Prozess gestoppt wird und
 					gegebenenfalls einen Fehler auswirft.
+					-Ein Task kann blockieren, indem er eine Datei braucht, die erst von einem anderen Thread bearbeitet werden muss.
 
 			-Kernel-Threads:
  				Im kernel implementiert
