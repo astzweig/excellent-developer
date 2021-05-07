@@ -1,0 +1,5 @@
+Posix:
+ 	Ist ein IEEE STandard zur einheitlichen Bereitstellung von Schnittstellen in Unixbasierten Systemen.
+ 	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
+ 	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
+ 	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
