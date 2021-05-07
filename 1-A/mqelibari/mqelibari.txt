@@ -100,6 +100,8 @@ Der Thread (Ein Strang/Faden):
  				Im kernel implementiert
  					-Taskswichting needs Hardware Support.
  					-Wen ein Task blockiert, kann ein anderer übernehmen.
+		Task:
+			Ein Task ist etwas was man machen will, eine "Aufgabe". Ein Thread ist einer von vielen möglichen "Arbeitern" die die Aufgabe erfüllen.
 
 
 Init-Prozess:
