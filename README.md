@@ -38,6 +38,8 @@ Solutions to questions shall be answered in markdown files.
 | --- | --- |
 | [1.A][step_1] | Computer processes, Threads and IPC |
 | [1.B][step_2] | POSIX, POSIX shell, environment variables |
+| [1.C][step_3] | Arguments, Entry points, User space |
 
 [step_1]: 1-A_Step.md
 [step_2]: 1-B_Step.md
+[step_3]: 1-C_Step.md
