@@ -1,0 +1,45 @@
+Posix:
+ 	Ist ein IEEE STandard zur einheitlichen Bereitstellung von Schnittstellen in Unixbasierten Systemen.
+ 	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
+ 	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
+ 	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
+
+POSIX-Shell:
+ 	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
+ 	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
+ 	auf allen Unix Systemen zum Laufen zu bringen.
+
+Different Shells:
+ 	Bourne (UNIX), POSIX, BASH, csh, zsh, cmd.exe, PowerShell etc.
+	
+	Unterschied zwischen den Shells:
+		csh: Eine auf C basierende Shell.
+		Posix: Eine auf den POSIX-Standart basierende Shell.
+		Bourne shell: Die erste Shell auf dem die meisten Shells basieren.
+		BASH: Die weiterentwickelte form von der Bourne Shell.
+	Shebang:
+		#!/bin/sh:
+			Gibt der Shell an die folgenden Kommandos, mit /bin/sh auszuführen.
+
+Globbing:
+ 	Globbing beschreibt das Anwenden von Wildcard-Patterns(platzhaltern), um so auf dateien zuzugreifen ohne ihren genauen dateinahmen kennen zu müssen.
+ 	Dabei haben die verscheidenen PLatzhalter folgende bedeutung:
+ 		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen. ?aus.txt alle Dateien die Haus Maus Raus etc. Heißen anwählen.
+ 		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen. Beispiel. rm *.txt (Alle .txt Datein im Verzeichnis löschen.
+ 		die Raute (#) ist ein platzhalter für einen numerischen Wert. rm #.png alle .png Dateien die mit einer zahl benannt sind löschen.
+
+
+Umgebungsvariablen:
+ 	Sind konfigurierbare Variablen die Pfade zu Programmen oder Daten. Dadurch ist es möglich ein programm in der shell direkt
+	durch eingabe der Befehle auszuführen ohne erst den pfad zum programm anzugeben oder in dieses verzeichnis wechseln zu müssen.
+ 	Beispiele hierfür sind zb. git und svn.
+	Die Umgebungsvariablen sind für das System gedacht das auf dem Computer läuft.
+	Sie sind auch im PATH Folder gespeicher unter Windows, oder in der bin Datei unter unix Systemen.
+	Umgebungsvariablen sind wichtig um zu wissen wie der Computer Heist auf dem man arbeitet,
+	oder wo ein bestimmtes Programm zum ausführen von bestimmten Programmen ist.
+
+Export-Befehl:
+	Der Export Befehl macht eine Variable die zuvor Über NAME= "TEST" indiziert wurde mit dem System bekannt und es kommt zu den Umgebungsvariablen.
+	NAME = "TEST"
+	export NAME
+	

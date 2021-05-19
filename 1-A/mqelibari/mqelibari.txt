@@ -1,0 +1,228 @@
+1. Ein Prozess (ein Task, eine Programminstanz) ist ein in Ausführung befindliches Programm (zur Laufzeit).
+
+Ein Prozess wird vom Betriebssystem, genauer gesagt dem Scheduler, dynamisch kontrolliert,
+durch Aktionen, die den Prozess in einen anderen Zustand versetzen.
+Ein Prozess ist auch die Zustandsinformation eines laufenden Programms.
+
+Ein Prozess bezeichnet den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+Dieser beinhaltet:
+        -Den wert des Befehlszählers(1)
+                (1) Register im Hauptprozessor. Enthält Speicheradressen des Aktuellen und nächsten Befehls.
+                auch Befehls-/Programmzeiger genannt.
+        -Inhalt des Prozessregisters(2)
+                (2) Speicherbereich für Daten, auf die besonders schnell zugegriffen werden muss.
+                Dies ist für diese Aufgabe die schnellste Möglichkeit, da der L-Cache unabhängig
+                Daten-/Adressbus ist.
+        -In Ausführung befindlicher Code
+        -Stack(3)
+                (3)Enthält Temporäre Daten wie Rücksprungsadressen und lokale Variablen.
+        -Datensegment(4)
+                (4)Enthält Globale Variablen und Datenstrukturen, da diese schon beim Start
+                des Programms bekannt sein müssen.
+        -Heap(5)
+                (5)Zusätzlicher Pufferspeicher. Dieser ist für Entwickler ein erheblicher Mehraufwand,
+                daher eine häufige Fehlerquelle.(Buffer-Overflow)
+
+Ein Prozess bekommt seinen eigenen Adressraum und weitere Betriebssystemmittel/Ressourcen zugeordnet.
+        -Prozesse sind gegeneinander abgeschirmt.
+        -Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+(Im Gegensatz ein Programm:
+        Statische Verfahrensvorschrift für eine Verarbeitung auf einem Rechnersystem.)
+
+Unterschied zwischen Heap und Stack.
+
+        Heap:
+                Im Heap-Speicher werden globale Variablen gespeichert.
+                Die Speicherung ist auf verschiedene Speicherblöcke aufgeteilt und hat keine feste Größe.
+                Um auf den Heap zuzugreifen benötigt es aufgrund der aufgeteilten Speicherblöcke mehr Zeit um darauf zuzugreifen.
+
+        Stack:
+                Auf dem Stack Speicher werden lokale Variablen gespeichert.
+                Der Stackspeicher hat eine feste Größe und einen festen Platz.
+                Aufgrund dieses fest liegenden Speicherbereichs, ist der zugriff auf die Daten die im Stack-Speicher liegen,
+                schneller zuzugreifen. Nachdem Ablauf eines Prozesses wird der Speicher leergeräumt.
+                Aufgrund des begrenzten Speicherplatzes Ein Prozess (ein Task, eine Programminstanz) ist ein in Ausführung befindliches Programm (zur Laufzeit).
+Prozessorregister:
+        Die L-Cache:
+                Ein Puffer zwischen Arbeitsspeicher und Prozessor.
+                Auf der L-Cache werden daten gespeichert, die schnell bzw. oft gebraucht werden.
+                Ist in 3 Stufen aufgeteilt.
+                L1, L2, L3.
+                Je näher am Prozessor, desto kleiner der Speicher und desto wichtigere Daten befinden sich in der Cache.
+
+
+
+
+Der Thread (Ein Strang/Faden):
+ 	-Eine nebenläufige Ausführungseinheit innerhalb eines Prozesses
+
+ 	Kernel_Threads:
+ 		 Threads, des gleichen Prozesses können verschiedenen Prozessoren zugeordnet sein.
+
+
+ 	Thread-Kontext:
+ 		Jeder Thread besitzt einen eigenen Kontext:
+ 			-unabhängiger Registersatz
+ 				(Registersatz: Die Menge aller Register eines Mikroprozessors.)
+ 			-einen eigenen Stapel (Stack)
+ 				(Stack: Ein Stapel mit Last in first Out- Prinzip)
+
+ 		Registersatz:
+ 			Die Menge der Register im Mikroprozessor, die durch Programme direkt
+ 			angesprochen werden können.
+ 			3 Typen:
+ 				-Datenregister zur Zwischenpeicherung von Operanden und 
+ 				 Rechenergebnissen
+ 				-Adressregister zur Adressierung von Operanden und Befehlen.
+
+				Operanden:
+					z.B Arithmetische Ausdrücke (+, -, *, :)	
+					z.B. Aussagelogische Ausdrücke (und, oder, wenn...dann)
+				Da Operanden öfters benutzt werden, sind sie im Register gespeichert um ein schnelles Abrufen zu ermöglichen.
+				String concatenation ist an sich kein Operator, aber das "+" was dabei benutzt wird, ist ein Operand,
+				ähnlich verhält sich append().
+
+
+		-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
+ 				 oder Stackpointer.
+
+ 		Typen:
+ 			-User-Threads:
+ 				Nicht im Kernel implementiert, sondern in einer separaten
+ 				Programmbibliothek.
+ 					-Taskswitching zwischen Userthreads ohne aufwendige Systemaufrufe
+ 				 	möglich.
+ 					-Wen ein Task blockiert sind alle blockiert.
+					(Falls ein Task Probleme macht, ist es wichtig das dieser Blockiert, sodass der Prozess gestoppt wird und
+					gegebenenfalls einen Fehler auswirft.
+					-Ein Task kann blockieren, indem er eine Datei braucht, die erst von einem anderen Thread bearbeitet werden muss.
+
+			-Kernel-Threads:
+ 				Im kernel implementiert
+ 					-Taskswichting needs Hardware Support.
+ 					-Wen ein Task blockiert, kann ein anderer übernehmen.
+		Task:
+			Ein Task ist etwas was man machen will, eine "Aufgabe". Ein Thread ist einer von vielen möglichen "Arbeitern" die die Aufgabe erfüllen.
+
+
+Init-Prozess:
+ 	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1) (windows basierte system haben dieses Prozess nicht weil sie den Service Control Manager haben, der alles regelt.)
+	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
+ 	ist in etc/inittab festgelegt.
+ 	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
+ 	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+	Als aller erstes führt das BIOS jedoch einen POST (Power-On-Self-Test) durch,
+ 	bei diesem wird:
+ 		-Funktion der CPU
+ 		-Funktion der RAM
+ 		-Funktion der Cache
+ 		-Funktion der I/O-Software
+ 	geprüft, bevor der Init-Prozess gestartet wird.
+
+
+
+
+Shell:
+ 	Software die das Interagieren mit dem OS möglich macht. 
+ 	Kernel = Kern des OS, Shell = Hülle, für den benutzer Sichtbarer teil des OS.
+
+	Virtuell Shell:
+		Virtual Shells werden benutzt um auf einem virtuellen Computer Probleme ausfindig zu machen und zu reparieren.
+
+	Login-Shell:
+		Wird aufgerufen, wen man sich einloggt z.B. 
+		Non-login Shells werden von der Login-Shell als Subshell aufgerufen.
+
+	Die Shell ist der sichtbare teil des Systems, das ist die Schnittstelle zwischen dem Computer und dem Nutzer.
+
+	Über die Shell werden weiter Anwendungen wie die Benutzeroberfläche des Computers oder andere Anwednungen gestartet.
+
+	Ausführung von Prozessen:
+		Nach Aufruf eines Kommandos, öffnet die Shell das benötigte Skript und führt die Befehl in dem Skript aus.
+		Zum Beispiel ein Haskell Skript. Es startet eine Child-Shell wa anfängt das Skript zu interpretieren und Zeile
+		für Zeile einzugeben.
+	Terminal: 
+		Ein Programm auf dem die Shell ausgeführt wird. Das Commandline interface zählt zu diesen.
+
+
+
+Interprozesskommunikation:
+
+ 	Erfolgt über verschiedene Verfahren:o clarify
+ 		-Shared Memory:
+ 			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+ 			 gemeinsame Bereiche des Arbeitsspeichers.
+ 		-Message Queue:
+ 			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+ 			 wo ein anderer Prozess sie abholen kann.
+		-Pipes:
+			Ergebnisse von einem Prozess werden in einem Fork process weiterverarbeitet (ein Child-prozess)
+
+		Wichtig:
+ 		Vermeidung von Race Conditions:
+ 			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+
+
+
+ Standart-streams:
+
+	Es gibt Standart-Datenströme und Programmen zu ermöglichen miteinander zu arbeiten.
+	Der Ausgabe-Strom eines Programms ist der Eingangsstrom eines anderen.
+	
+ 	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+ 		-stdin: Input vom z.B. Keybord
+ 		-stdout: Ausgabe von z.B Text auf dem Display
+ 		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+ 	Standarteingaben:
+ 		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+ 			-Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+ 			-Bsp. $less < eingaben.txt:
+ 				-Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+ 	Standartausgaben:
+ 		Über Standartausgaben kann ein Programm Daten ausgeben.
+ 			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+ 			Bsp. $find . -name "*html" > ausgaben.txt
+ 			Find wird in die datei ausgaben.txt umgeleitet.
+
+ 	Standarfehlerausgabe:
+ 		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+ 			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+ 	Pipe:
+ 		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+ 		Funktioniert nach dem first in first out Prinzip.
+ 		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
+ 		In der shell wird dies durch den "|" realisiert. So kann man mehrere befehle hintereinander Ausführen.
+		Pipes können auch auf mehrere Prozesse angewendet werden in Reihe. 1 nach 2 nach 3.
+
+
+/dev/null:
+ 	Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme verworfen werden. 
+ 	Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegeben.
+	Verwendung:
+ 		-Verwerfung von nicht interessanten Datenströmen, z.B. ausgaben vom Prozessor.
+
+
+Administratorrechte Prozess:
+	Jeder Prozess hat eine User-ID, das ist die ID vom User der in dem Moment angemeldet ist und den Befehl ausführt.
+	Admins haben die ID 0. Je nach rechte auf dem PC hat man eine andere ID.
+	Es geht nur als Admin "Superuser" die ID zu ändern.
+	Über chmod lassen sich die Rechte auf eine Datei ändern, z.B aus nur lesen, lesen und schrieben...
+
+	The Root User:	
+		Das ist der Benutzer, der bei der Installation des Betriebssystems eingerichtet wurde.
+		Auch Super-User gennant. Er hat alle rechte auf dem System und kann alles verwalten.
+
+	Ein Standartuser kann ein Programm über den Sudo Befehl als Admin ausführen oder indem er es schafft die ID zu ändern.
+
+
+.exe Datei:
+	Eine exe Datei ist eine executable File (eine ausführbare Datei).
+	Sie ist als binär Datei direkt in Maschinencode geschrieben,
+	oder in text Inhalt für die Shell zum auslesen.
+	
+
+
+

@@ -1,0 +1,264 @@
+Ein Prozess (ein Task, ein Programminstanz) ist ein ComputerProgramm zur Laufzeit. 
+
+Ein Prozess wird vom Betriebssystem dynamisch kontrolliert, durch aktionen, die den Prozess in einenanderen Zustand versetzen. Prozess ist auch die Zustandsiformation eines laufenden Programms.
+
+Ein Prozess bezeichnet den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+
+Ein Prozess hat seinen eigenen Adressraum und weitere Betriebssystemmittel zugeordnet.
+	-Prozesse sind gegeneinander abgeschrimt.
+	-Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+(Im Gegensatz ein Programm:
+	Statische verfahrensvorschrift für eine Verarbeitung auf einm Rechnersystem.)
+
+Betriebssystem:
+	Eine zusammenstellung von Computerprogrammen, die die Systemressourcen, eines Computers
+	verwaltet:
+		-Arbeitsspeicher
+		-Festplatten
+		-Ein- und Ausgabegeräte
+	Das Betirebsystem bildet die Schnittstelle zwischen Hardware-Komponenten und der Anwen-
+	dunssoftware des Benutzers.
+	
+	Betriebssysteme bestehen in der Regel aus einem Kernel.
+Kernel:
+	-Verwaltet die Benutzung der Hardware des Computers.
+	-Verwaltet spezielle Programme, die beim Start unterschiedliche Aufgaben übernehmen.			
+	-Laden von Gerätetreibern.
+	Im Kernel ist die Prozess- und Datenorganisation festgelegt, auf der alle weiteren
+	SoftwareBestandteile des Betriebsystems aufbauen.
+	Gängige Anforderungen:
+		-Parralelverarbeitungen verschiedener Aufgaben (Multitasking)
+		-Einhaltung zeitkritischer Grenzen
+		-Offenheit für unterschiedlichste Anwendungen und Erweiterungen.
+
+	Bestandteile:
+		Schnittstelle zur Hardware(Geräte, Speicher, Prozessoren)
+		Speicherverwaltung (Arbeitsspeicher)
+		Prozessverwaltung (Scheduler)
+		Geräteverwaltung
+		Dateisysteme	
+
+	Aufgaben:
+		
+Laufzeitumgebung:
+	 Vom Computer festgelegten Vorraussetzungen.
+		-Typenprüfung
+		-Debugging
+		-Codegenerierung /-optimierung
+		Laufzeitbibliotheken
+		Standartbibliotheken
+		Programmierschnittstellen
+		Laufzeitvariablen
+	Basis-Aufgaben:
+		-Lesen und Schreiben von Dateien
+		-Daten über Netzwerk transportieren
+		-Ein und Ausgabegeräte steuern
+		-Daten verwalten
+		-Sortieren und Suchen
+
+Der Prozess_Scheduler:
+	-Steuerprogramm des Bertiebssystems
+		-Regelt die zeitliche Ausführung mehrerer Prozesse in Bertriebsystemen.
+		-Funktioniert wie eine Warteschlange. 
+		-Soll in der Lage sein Echtzeit-Systeme zu händeln.
+		-Kann mehrere Prozesse vor Beendung hin und her switchen, um das gleichzeitige Abl-
+		laufen mehrerer Prozesse zu simulieren.(Dabei kann nur ein Prozess gleichzeitg
+		verarbeitet werden.
+
+	-Grobe Unterteilung in:
+		unterbrechende und
+		nicht unterbrechende.
+
+	-Unterbrechende Scheduler:
+		-teilen dem CPU von vorneherein nur für eine bestimmte Zeitspanne dem Prozess zu und
+		entziehen Ihn dem Prozess wieder.
+
+	-Nicht unterbrechende Scheduler:
+		Lassen den CPU solange für den Prozess laufen, bis der Prozess den CPU wieder frei-		   
+		gibt.
+
+
+Der Thread (Ein Strang/Faden):
+	-Eine nebenläufige Ausführungseinheit innerhalb eines Prozesses
+	
+	Kernel_Threads:
+		 Threads, des gleichen Prozesses können verschiedenen Prozessoren zugeordnet sein.
+		
+	
+	Thread-Kontext:
+		Jeder Thread besitzt einen eigenen Kontext:
+			-unabhägiger Registersatz
+				(Registersatz: Die Menge aller Reigster eines Mikroprozessors.)
+			-einen eigenen Stapel (Stack)
+				(Stack: Ein Stapel mit Last in first Out- Prinzip)
+			
+		Registersatz:
+			Die Menge der Register im Mikroprozessor, die durch Programme direkt
+			angesprochen werden können.
+			3 Typen:
+				-Datenregister zur Zwischenpeicherung von Operanden und 
+				 Rechenergebnissen. Bei 1 + 2 wären die 1 und die 2 die Operanden.
+				-Adressregister zur Adressirung von Operanden und Befehlen.
+				-Spezialregister für unterschiedliche Anwendungen z.B Programmzähler
+				 oder Stackpointer.
+
+	Typen:
+		-User-Threads:
+			Nicht im Kernel implementiert, sondern in einer separaten
+			Programmbibliothek.
+				-Taskswitching zwischen Userthreads ohne aufwenidge Systemaufrufe
+				 möglich.
+				-Wen ein Task blcokiert sind alle blockiert.
+
+		-Kernel-Threads:
+			Im kernel implementiert
+				-Taskswichting needs Hardware Support.
+				-Wen ein Task blockiert, kann ein anderer übernehmen.
+
+
+
+Standart-streams:
+	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+		-stdin: Input vom z.B. Keybord
+		-stdout: Ausgabe von z.B Text auf dem Display
+		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+	Standarteingaben:
+		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+			Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+			Bsp. $less < eingaben.txt:
+				Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+	Standartausgaben:
+		Über Standartausgaben kann ein Programm Daten ausgeben.
+			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+			Bsp. $find . -name "*html" > ausgaben.txt
+			Find wird in die datei ausgaben.txt umgeleitet.
+	
+	Standarfehlerausgabe:
+		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+	Pipe:
+		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+		Funktioniert nach dem first in first out Prinzip.
+
+	/dev/null:
+		Verhält sich wie eine leere Datei, mit dem Unterschied, dass eingehende Datenströme 		    
+		verworfen werden. Beim Lesezugriff wir ein einzelnes End-of-file Zeichen ausgegeben.
+		Verwendung:
+			-Verwerfung von nicht interessanten Datenströmen, z.B. ausgaben vom Prozessor		
+
+Interprozesskommunikation:
+	Erfolgt über verschiedene Verfahren:
+		-Shared Memory:
+			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+			 gemeinsame Bereiche des Arbeitsspeichers.
+		-Message Queue:
+			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+			 wo ein anderer Prozess sie abholen kann.
+
+	Wichtig:
+		Vermeidung von Race Conditions:
+			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+
+
+
+
+POSIX (Portable Operating System Interface)
+	POSIX ist eine Standardisieret Programmier-Schnittselle zwischen Anwendungssoftware und Betriebssystem.
+
+	POSIX definiert die Standards zur Umsetzung eines Programms, damit es Betriebssystemunabhängig ablaufen kann.
+	Nachdem csh auf den Markt kam, wurde es von einem POSIX-Standarisierten Shell ersetzt durch das Bash.
+	Sodass Nutzer nicht C lernen mussten um mit dem Betriebsystem zu interagieren.
+
+POSIX-Shell:
+	Ist der Standard UNIX-Shell. Durch POSIX sind Befehle wie "mkdir" "cd" universal geregelt auf allen Unix-Basierenden
+	Systemen wie Linux order Mac-OS
+
+
+
+
+Envirorment Variabeln:
+	Sind konfigurierbare Variablen im Betriebsystem, die oft Pfade zu bestimmen Programmen oder Daten
+	enthalten. Sowie Daten und einstellungen die von mehreren Programmen genutzt werden können.
+	Diese Variablen kann der Benutzer sowohl lesen als auch verändern. 
+	Setzen der Variable:
+		"TEST"= "INHALT"
+	Bekanntmachen der Variable:
+		export "TEST"
+	Löschen der Variable:
+		unset "TEST"
+
+Globbing:
+	Spezifikation einer Menge von Datennamen mithilfe eines Wildcards.
+	Beispiel *.txt sind alle txt Dateien in einem Ordern gemeint.
+
+
+Shell:
+	Es gibt GUI's und TUI'S:
+		GUI: Graphisches Interface zu Kommunikation mit dem Betriebsystem.
+		TUI: Textbasierte Interfaces.
+
+	Es gibt Programmiersprachen extra für den Shell, z.B. Haskell.
+
+	Es gibt viele verschiedene Shell's:
+		-Bash
+		-Bourne Shell
+		-C shell
+
+.exe:
+	Eine ausführbare Datei, die von dem Betriebsystem anhand seiner Endung erkennt.
+	In der exe Datei ist der fertige Bitcode enthalten, der vom Betriebsystem gelesen
+	werden kann und vom Prozessor verarbeitet werden kann.
+	Sie enthält alle nötigen Informationen und den Prozess laufen zu lassen und 
+	mit dem Betriebsystem zu interagieren.
+	
+
+Sys.argv(Python):
+	In der sys.argv werden die Command-Line Argumente abgespeichert.
+	Diese Argumente, werden vom Betriebsystem als bytes Codiert an Python übergeben.
+	Python decodiert diese Bytes und übergibt sie dem Script als benutzbare Variablen.
+	Man kann auch mit den Bytes arbeiten, da sie weiterhin zur Verfügung stehen.
+
+Zugriff von Command Line Argumenten für Prozesse:
+	Command Line Argumente werden in einem speziellen (Anwender-) Stack abgespeichert.
+	Dort können sie vom Prozess abgerufen werden. 
+
+Begrenzung der Argumente:
+	Es gibt immer eine Begrenzung, diese ist aber nicht festgelegt an der Größe.
+	Es kommt eher drauf an auf welchem OS sie ausgeführt werden.
+	Bei MacOS 262144. Argmax bestimmt das.
+
+Entry-Points:
+	Entry-Pointe ist der Beginn eines Process, der von link-time zum run-time wechselt.
+	Er beginnt mit der Main Funktion. An diesem Punkt wird der Prozess als erstes ausgeführt.
+	
+ABI-Schnittstelle:
+	Die ABI-Schnittstelle ist die Schnittstelle zwischen zwei Computerprozessen.
+	Meistens zwischen einem OS Prozess und einem User Prozess.
+	Die ABI-Schnittstelle definiert wie ein geschriebenes Programm für den Prozessor zu interpretieren ist.
+
+User-Space:
+	Der Prozessor hat verschiedne Befehle in verschiedne Ebenen, eingeteilt.
+	Diese Ebenen werden als Ringe dargestellt. Im Zentrum liegen die Kernel-Prozesse und Befehle.
+	Auf diese Befehle kann der User nicht zugreifen. Der User-Space liegt in den äußeren Ringen.
+	Sie können mittels "Schleusen" mit den inneren Ringen kommuniziert. Die unterschiedlichen Ringe haben
+	verschiedene Bevollmächtigungen. Im Zentrum liegt diese bei 100 %. Je weiter außen desto weniger "Rechte"
+	haben die Befehle. Die Hardware Kommunikation läuft ausschließlich über den Kernel-Space.
+	User-Befehle werden an den Kernel-Space übergeben, überprüft und dann ausgeführt oder "gekillt".
+
+UNIX-executable-Binary:
+	Diese Besteh aus einer ELF-Header:
+		Beschreibt die die Identität und Art des Programms.
+		Für welches Betriebsystem es geschrieben wurde.
+	Programm-Header:
+		Diese beschriebt, wie das Prozess-Image hergestellt werden soll. 
+		Und wie der Prozess mit der ABI-Schnittstelle zu kommunizieren hat.
+	Section-Header:
+		Die Unterteilung der Binary in verschiedene Listen und Speicheradressen.
+	Binary:
+		Der Maschinencode, der für den Prozessor ausführbar ist. 
+		
+	
+	
