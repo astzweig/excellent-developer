@@ -1,0 +1,70 @@
+
+-What is user space?
+	Operating systems divide virtual memory into kernel space and user space.
+	all the users processes run in the user space, while the kernel space is where the kernels code is stored and run from.
+	Userspace processes dont have access to all parts of memory, the kernel on the other hand has full access.
+	
+	Why is this?
+		in x86-architecture operating systems there are 2-4 protection rings(only 2 (0 and 3) used mostly). Those are machanisms to protect data from faults
+		and damage. The most fundamental ring is Ring 0, it manages the kernels memoryspace.
+		Ring 0 is the kernel mode which runs the kernels code, it has permissions to do anything. 
+		SU code is also run in kernelmode, giving the su the mighty permissions it has.
+		Processes can "apply" to switch between rings and gain "admin" rights that way.
+		(not sure if that would be too much off-topic, so leavin that out)
+	
+	The kernel space is the location where the code of the kernel is stored and from where its executed.
+	Its the kernels job to manage applications running in the user space.
+	By offering system calls the kernel provides a safe and predefined way for usermode(rings 1-3) processes to communicate with the operating system.
+	That way a userland process can tell the kernel it would like to write to a file or maybe even kill a process.
+	some of those calls are open, kill, write, read etc.. there are many more.
+
+	
+-How is an UNIX executable binary structured?
+	The structure of ELF(executable and linking format)-Files  consists of the ELF Header and the file Data.
+	
+		ELF Header:
+		Is mandatory to ensure that data is correctly interpretet during execution. It contains the magic(a set of Hexadecimal values, like the entry point):
+			-Class: determines the architecture of the file 32-Bit(01) or 64-Bit (02)
+			
+			-Data: Knows 2 options, little-endian/least significant bit (01) or big-endian/most significant bit(02)
+			       This value helps to interpret the other Values correctly bc each processor-type has its own way of dealing with
+			       incoming instructions.
+			-and various other values.
+		
+		File data:
+		The ELF files consist off 3 parts, program headers, section headers and data:
+			-program headers: tell the kernel how to create a memory image for the execution of the file.
+					   the kernes again, converts those predefined instuctions, mapping them into a virtual adress space.
+			
+			-ELF sections: Section headers define all the sections in a file. the more important sections are:
+					.text: an object that contains the executable code. Its packed into a segment with r and x permissions.
+					.data:initialized data with r/w permissions
+			
+-What is an entry point of an executable?
+	The entry point of an EXE is the main_function in its code. Its there code execution starts, similar to the if __name__ = "__main__" in python
+	or the mainfunction in c++. Theres only one entrypoint, hence i.e. GCC fails compiling C code if theres more than one main function.
+	Technically seen, its the adress in the memory where the instructor-pointer is set at when executing the file.
+			
+-Is there a limit on the amount of arguments a process can receive?
+	Yes, but it differs from OS to OS. Some have a fixed number determines by ARG_MAX, some have a limit of 25% of
+	the stacks total size. Some have even 100% of the total stacks size as their max.
+	
+-How does a python script get access to its arguments?
+	via the sys module. The sys module enables the scrpit to collect user input in the command line interface.
+	This input is then stored in a list named argv standing for argument values. theres also another attribute called argc, for argument count.
+	Now the script can use those values in argv to do the things the coder wants it to do.
+
+-How does a process get access to its arguments?
+	Command Line arguments are stored in a special userstack where they can be accessed by the processes.
+	(very little info on this one)		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				 
