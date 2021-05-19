@@ -1,0 +1,41 @@
+Posix:
+	Ist ein IEEE STandard zur einheitlichen Bereitstellung von Schnittstellen in Unixbasierten Systemen.
+	Dadurch ist es möglich dass ein Programm welches auf dem POSIX Standard basiert, höchstwahrscheinlich
+	auf einer vielzahl von Betriebssystemen laufen kann. Verwendet man Betriebssystem Spezifische API's,
+	wird man auf erhebliche Probleme stoßen, falls man die Anwendung auf ein anderes Betriebssystem portieren will.
+	
+	
+POSIX-Shell:
+	Die BASH ist nicht standardisiert. Sie wird durch die in ihr implementierten Funktionen
+	definiert. Die POSIX-Shell hingegen wird durch ihren Standard bestimmt, welcher es ermöglicht die POSIX-Shell
+	auf allen Unix Systemen zum Laufen zu bringen.
+	
+Shells:
+	Bourne (UNIX), POSIX, BASH, csh, zsh, cmd.exe, PowerShell et
+	
+	Here, POSIX, as stated above, is a defined standard. The Bourne shell is POSIX-conformant, meaning scripts written on it will most likely run on other systems.
+	whereras the BASH(Bourne Again Shell) is based on the traditional Bash, but offers a lot of extra features which are not part of POSIX.
+	This is why scripts written on a BASH shell, will most likey not run on other systems.
+	/bin/sh is an executable representing the BASH shell, #!/bin/sh represents the POSIX Compatible Bourne Shell
+	
+
+Globbing:
+	Globbing beschreibt das Anwenden von Wildcard-Patterns(platzhaltern), um so auf dateien zuzugreifen ohne ihren genauen dateinahmen kennen zu müssen.
+	Dabei haben die verscheidenen PLatzhalter folgende bedeutung:
+		das Fragezeichen (?) ist ein platzhalter für genau ein Zeichen.
+		das Sternchen (*) ist ein platzhalter für beliebig viele Zeichen.
+		die Raute (#) ist ein platzhalter für einen numerischen Wert.
+	
+	Examples: 
+	-if you want to display all files of a certain type, you could use *.fileextension,
+	or you could use c????.py to display all files which filenames are 5 characters long and begin with a lowecase c.
+	
+
+Umgebungsvariablen:
+	Sind konfigurierbare Variablen die Pfade zu Programmen oder Daten. Dadurch ist es möglich ein programm in der shell direkt
+	durch eingabe der Befehle auszuführen ohne erst den pfad zum programm anzugeben oder in dieses verzeichnis wechseln zu müssen.
+	Beispiele hierfür sind zb. git und svn.
+	Environment variables are variables that are available system-wide and are inherited by all child processes and the shell.
+	You can set the Variables in the shell itself, so bind commands to shortcuts. that way you can use 'lla' instead of ls -l -a.
+
+

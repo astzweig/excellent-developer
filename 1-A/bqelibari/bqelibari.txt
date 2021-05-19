@@ -1,0 +1,153 @@
+Ein Prozess ist eine Programminstanz/ein in ausführung befindliches Programm. 
+
+Prozesse werden vom Betriebssystem, genauer gesagt dem Scheduler, dynamisch kontrolliert, 
+durch aktionen, die den Prozess in einen anderen Zustand versetzen. 
+Ein Prozess ist gleichzeitig die Zustandsinformation eines laufenden Programms.
+
+Prozesse bezeichnen dabei den Ablauf eines Computerprogramms auf einem oder mehreren Prozessoren.
+Dieser beinhaltet:
+	-Den wert des Befehlszählers(1)
+		(1) Register im Hauptprozessor. Enthält Speicheradressen des Aktuellen und nächsten Befehls.
+		auch Befehls-/Programmzeiger genannt.
+	-Inhalt des Prozessregisters(2)
+		(2) Speicherbereich für Daten, auf die besonders schnell zugegriffen werden muss.
+		Dies ist für diese Aufgabe die schnellste Möglichkeit, da der L-Cache unabhängig
+		Daten-/Adressbus ist.
+	-In ausführung befindlicher Code
+	-Stack(3)
+		(3)Enthält Temporäre Daten wie Rücksprungadressen und lokale Variablen.
+	-Datensegment(4)
+		(4)Enthält Globale Variablen und Datenstrukturen, da diese schon beim Start
+		des Programms bekannt sein müssen.
+	-Heap(5)
+		(5)Zusätzlicher Pufferspeicher. Dieser ist für Entwickler ein erheblicher Mehraufwand,
+		daher eine häufige Fehlerquelle.(Buffer-Overflow)
+		
+		
+The difference between Heap and Stack are the following:
+	-stack memory is very limited(bad, stack overflow by creating too many objects), whereas heap-memory can provide the maximum memory the OS itself can provide(also bad, self-explaining).
+	This is also where the main issues of both heap and stack come from. One is chronically short of memory, the other suffers from fragmented memory.
+	-Heap supports Garbage collection, costs more and is slower than the Stack. This is because the Heap is actually a Tree-based datastructure.
+	-While in a stack memory is allocated in a coninuous block, its allocated in a pretty much random order in the heap.
+
+	
+
+Ein Prozess bekommt seinen eigenen Adressraum und weitere Betriebssystemmittel/Ressourcen zugeordnet.
+	-Prozesse sind gegeneinander abgeschrimt.
+	-Prozesse können nur auf eigene Adressräume und Betriebssystemmittel zugreifen.
+Im Gegensatz ein Programm:
+	Statische verfahrensvorschrift für eine Verarbeitung auf einm Rechnersystem.
+	
+A Process is represented by a da datastructure called Process Control Block (PCB). The PCB contains many informations regarding its Process.
+e.g. its hardware-context, its current processor-state
+	
+Der Prozess_Scheduler:
+	-Steuerprogramm des Bertiebssystems
+		-Regelt die zeitliche Ausführung mehrerer Prozesse in Bertriebsystemen.
+		-Funktioniert wie eine Warteschlange. 
+		-(Soll in der Lage sein Echtzeit-Systeme zu händeln.)
+		-Kann mehrere Prozesse vor Beendung hin und her switchen, um das gleichzeitige Abl-
+		laufen mehrerer Prozesse zu simulieren.(Dabei kann nur ein Prozess gleichzeitg
+		verarbeitet werden.
+
+	-Grobe Unterteilung in:
+		-unterbrechende
+		-nicht unterbrechende Schedulingstrategien.
+
+	-Unterbrechende Scheduler:
+		-teilen dem CPU von vorneherein nur für eine bestimmte Zeitspanne dem Prozess zu und
+		entziehen Ihn dem Prozess wieder.
+
+	-Nicht unterbrechende Scheduler:
+		Lassen den CPU solange für den Prozess laufen, bis der Prozess den CPU wieder freigibt.
+		
+		
+Init-Prozess:
+	Ist bei UNIX-Systemen der allererste Prozess mit Prozess-ID 1 (PID1), unter windows gibt es keinen vergleichbaren prozess.
+	dieser startet alle anderen Prozesse. Welche das sind und in welcher reihenfolge diese gestartet werden,
+	ist in etc/inittab festgelegt.
+	ein kill init kommt dem Herunterfahren des Systems gleich, da mit dessen Beendigung alle anderen Prozesse beendet werden.
+	Diese anderen Prozesse werden beendet da sie Kind-Prozesse des Init-Prozesses sind.
+	Als aller erstes wird vor dem Init-Prozess jedoch einen POST (Power-On-Self-Test) vom BIOS durchgeführt,
+	bei diesem wird:
+		-Funktion der CPU
+		-Funktion der RAM
+		-Funktion der Cache
+		-Funktion der I/O-Software
+	geprüft. Sollte der POST fehlschlafǵen, ertönt ein signalton und der start des Computers wird abgebrochen.
+	
+
+Shell:
+	Software die das Interagieren mit dem OS möglich macht. 
+	Kernel = Kern des OS, Shell = Hülle, für den benutzer Sichtbarer teil des OS.
+	The visible part of the OS discribes the Console, the most fundamental option for HUmans to interact with an OS.
+	The shell is so powerful that there are basically no limitations, if you have sufficient permissions, the shell allows you to delete
+	the whole file system.
+	A login shell is the first process that executes under your user ID when you log in for an interactive session. 
+	Login shells typically read a file that do things like setting environment variables, whereas the virtual shell is just another name
+	for the regular shell. This was done in order to confuse ppl who want to start working with linux.
+	
+Administratorrechte Prozess:
+	sudo chmod n+s (programmpfad) bewirkt dass das programm mit den rechten der Benutzergruppe des SuperUsers
+	ausgeführt wird. Unter Linux kann jeder Nutzer mit seinem eigenen Passwort zum Administrator werden den man in die Datei “/etc/sudoers” einträgt,
+	dieser nutzer kann dann mit seinem Passwort Adminstrative befehle ausführen. Diese nutzer sind dann berechtigt den befehl mit den rechten des Superusers
+	auszuführen. Der superuser/root-user ist das konto welches absolut keine beschränkungen hat und vollen zugriff auf jede datei im system genießt. 
+	Generell steht sudo für substitite-User do, und führt den nachfolgenden befehl mit Administratorrechten aus(falls vorhanden). 
+	Ein standardbenutzer kann keine administrativen befehlen ausführen ohne in etc/sudoers eingetragen worden zu sein.
+	
+
+.EXE Datei und ihre Struktur:
+	Bei einer .exe datei handelt es sich unter Windows-Basierten Systemen um eine Ausführbare datei.
+	Sie besteht aus:
+		-Ausführbarem Code, welcher in der .exe als .text vorliegt
+		-Datensektionen, liegt als .data vor
+		-Ressourcensektionen (.rsrc)
+		-Importdatensektion (.idata)
+		-Debuginfotmationssektion(.debug)
+	The .text section is not to be confused with a normal textfile which is readably by a texteditor.
+	It got its name because it contains the actual executable instructions of the .exe 
+	
+
+Standart-streams:
+	Standart-Datenströme sind 3 Datenströme für die Ein- und Ausgabe im Betriebsystem.
+		-stdin: Input vom z.B. Keybord
+		-stdout: Ausgabe von z.B Text auf dem Display
+		-stderr: Ausgabe von Fehlermeldungen auf dem Display oder Ton.
+
+	Standarteingaben:
+		Über Standarteingaben können Daten in ein Programm eingelesen werden.
+			-Standarteingabe die Gerätedatei /dev/stdin, Deskriptor Nummer 0
+			-Bsp. $less < eingaben.txt:
+				-Standarteingabe für das Programm less aus der Datei eingaben.txt
+
+	Standartausgaben:
+		Über Standartausgaben kann ein Programm Daten ausgeben.
+			Standartausgaben die Gerätedatei /dev/stdout, Deskriptor Nummer 1
+			Bsp. $find . -name "*html" > ausgaben.txt
+			Find wird in die datei ausgaben.txt umgeleitet.
+	
+	Standarfehlerausgabe:
+		Zweiter Ausgabestrom, der für Fehler- und Statusmeldungen gedacht ist.
+			Standartfehlerausgaben haben die Gerätedatei /dev/stderr, Deskriptor Num. 2
+
+	Pipe:
+		Eine Pipe / Pipeline ist ein Datenstrom zwischen zwei Prozessen.
+		Funktioniert nach dem first in first out Prinzip.
+		Das ergebnis eines Programms wird dabei als Eingabe eines anderen Programms verwendet.
+		In der shell wird dies durch den "|" realisiert. So kann man zwei oder mehrere befehle hintereinander Ausführen.
+		
+
+Interprozesskommunikation:
+	Erfolgt über verschiedene Verfahren:o clarify
+		-Shared Memory:
+			-Mehrere Prozesse greifen auf einen gemeinsamen Datenspeicher zu, bsp. auf
+			 gemeinsame Bereiche des Arbeitsspeichers.
+		-Message Queue:
+			-Nachrichten von einem Prozess an eine Nachrichtenanlage geschickt, von
+			 wo ein anderer Prozess sie abholen kann.
+
+	Wichtig:
+		Vermeidung von Race Conditions:
+			Kein Zugriff von mehreren Prozessen gleichzeitig auf einen Speicher.
+	The Pipe from above is not an IPC, because the different processes dont communicate in any way.
+	You as the user decide which process will get which output as its input.
